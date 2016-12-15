@@ -16,8 +16,9 @@ public class LevenshteinDistanceMetric  {
 		for (int j = 0; j < m; j++) {
 			T[0][j + 1] = T[0][j] + 1;
 		}
+		System.out.println(Arrays.toString(T[0] )); 
 		for (int i = 0; i < n; i++) {
-//			T[i+ 1][0] = T[i][0] +1;
+			T[ 1][0] = i+1; //Î²²¿append£¬¾àÀëÏÔÈ»ÊÇ1
 			for (int j =  0; j <= ( m-1 ); j++) {
 			//for (int j = i-1>0?i-1:0; j <= (i+1>n-1?n-1:i+1); j++) {
 				T[  1][j + 1] = min(T[0][j] + sub(x, j, y, i), T[0][j + 1]
@@ -29,7 +30,7 @@ public class LevenshteinDistanceMetric  {
 //			System.out.println(" ");
 		}
     	System.out.println(System.nanoTime()-start);
-		return T[1][m];
+		return T[0][m];
 	}
 
 	private int sub(String x, int xi, String y, int yi) {
@@ -50,6 +51,6 @@ public class LevenshteinDistanceMetric  {
 	
 	public static void main(String...s){
 		LevenshteinDistanceMetric ldm = new LevenshteinDistanceMetric();
-		System.out.println(ldm.distance("azzelityasfsdfazs", "asfsdfa"));
+		System.out.println(ldm.distance("azzelity163134pzs", "asfsdfa"));
 	}
 }
