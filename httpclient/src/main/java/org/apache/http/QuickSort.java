@@ -16,9 +16,9 @@ public class QuickSort {
 			while(l<h&&arr[h]>=povit)
 				h--;
 			if(l<h){
-				int temp=arr[h];
-				arr[h]=arr[l];
-				arr[l]=temp;
+				arr[h]^=arr[l];
+				arr[l]^=arr[h];
+				arr[h]^=arr[l];
 				l++;
 			}
 
@@ -27,9 +27,9 @@ public class QuickSort {
 
 //			Arrays.asList(arr).forEach(x->System.out.print(x+",") ) ;
 			if(l<h){
-				int temp=arr[h];
-				arr[h]=arr[l];
-				arr[l]=temp;
+				arr[h]^=arr[l];
+				arr[l]^=arr[h];
+				arr[h]^=arr[l];
 				h--;
 			}
 		}
@@ -89,8 +89,8 @@ public class QuickSort {
 	
 	public static void main(String ...arg){
 		QuickSort a = new QuickSort();
-		Integer[] targetArr = new Integer[]{5,1,4,8,3,7,6,2,9};
-		a.quickSort3(targetArr, 0, 8);
+		int[] targetArr = {5,1,4,8,3,7,6,2,9};
+		a.quickSort (targetArr, 0, 8);
 		Arrays.asList(targetArr).forEach(System.out::print ) ;
 	}
 }

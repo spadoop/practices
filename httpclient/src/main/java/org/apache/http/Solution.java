@@ -78,11 +78,36 @@ top:        for(i=z+1;i<nums.length-1;i++){
 		if(l>low)quickSort(arr,low,l-1);
 		if(h<high)quickSort(arr,l+1,high);
 	} 
+     
+    public static int reverse(int _x) {  
+        long y = 0;
+        int minus= _x<0?-1:1;
+        int[] charArr = new int[32];
+        long x = (long)_x * minus;
+        int i =0;
+        long tenth=1;
+        if(x>Integer.MAX_VALUE) return 0;
+        while(x >=10){ 
+            charArr[i++]=  (int) (x%10)  ;
+            x = x/10; 
+        }
+        charArr[i] =  (int) x ;
+        for(int j=0;j<=i;j++)System.out.print (charArr[j]);
+        for(;i>=0;i--){
+            y+= (charArr[i] )*tenth; 
+            tenth *=10; 
+            System.out.println(y);
+        }
+        long result=y*minus;
+        System.out.println(result);
+        return  y>Integer.MAX_VALUE||y<Integer.MIN_VALUE?0:(int)result;
+    } 
     public static void main(String ...s){
-    	Integer[] nums=
-//    	new int[]{1,-1,-1,0};
-    	new Integer[]{7,-1,14,-12,-8,7,2,-15,8,8,-8,-14,-4,-5,7,9,11,-4,-15,-6,1,-14,4,3,10,-5,2,1,6,11,2,-2,-5,-7,-6,2,-15,11,-6,8,-4,2,1,-1,4,-6,-15,1,5,-15,10,14,9,-8,-6,4,-6,11,12,-15,7,-1,-9,9,-1,0,-4,-1,-12,-2,14,-9,7,0,-3,-4,1,-2,12,14,-10,0,5,14,-1,14,3,8,10,-8,8,-5,-2,6,-11,12,13,-7,-12,8,6,-13,14,-2,-5,-11,1,3,-6};
-    	System.out.println(threeSum(nums));
-    	System.out.println((int)'a');
+//    	Integer[] nums=
+////    	new int[]{1,-1,-1,0};
+//    	{700,-1,14,-12,-8,7,2,-1500,8,8,-8,-14,-4,-500,7,9,1100,-4,-1500,-600,1,-14,4,3,10,-5,2,1,6,11,2,-2,-5,-7,-6,2,-15,11,-6,8,-4,2,1,-1,4,-6,-15,1,5,-15,10,14,9,-8,-6,4,-6,11,12,-15,7,-1,-9,9,-1,0,-4,-1,-12,-2,14,-9,7,0,-3,-4,100,-2,12,14,-10,0,5,14,-1,14,3,8,10,-8,8,-5,-2,6,-11,12,13,-7,-12,8,6,-1300,1400,-2,-5,-11,1,3,-6};
+//    	System.out.println(threeSum(nums));
+    	
+    	System.out.println(reverse(-2147483648));
     }
 }
